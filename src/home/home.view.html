@@ -11,16 +11,16 @@
 <header>
     <div class="logo">Sonido Vivo</div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="productos.html">Productos</a>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="blogs.html">Blogs</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="home.view.html">Home</a>
+        <a href="../products/products.view.html">Productos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Blogs</a>
+        <a href="#">Contacto</a>
     </nav>
     <div class="user-actions">
-        <a href="login.html">Iniciar sesión</a>
-        <a href="registro.html">Registrar</a>
-        <a href="carrito.html" class="cart-icon">🛒 Cart (0)</a>
+        <a href="#">Iniciar sesión</a>
+        <a href="#">Registrar</a>
+        <a href="../cart/cart.view.html" class="cart-icon">🛒 Cart (0)</a>
     </div>
 </header>
 
@@ -30,7 +30,7 @@
         <div class="hero-content">
             <h1>TIENDA ONLINE</h1>
             <p>Encuentra las mejores guitarras, bajos, baterías y teclados. Todo lo que necesitas para que tu música cobre vida está aquí.</p>
-            <a href="productos.html" class="btn">Ver productos</a>
+            <a href="../products/products.view.html" class="btn">Ver productos</a>
         </div>
         <div class="hero-image">
             <!-- Aquí puedes colocar la imagen de una guitarra o un estudio -->
@@ -39,27 +39,8 @@
     </section>
 
     <!-- Cuadrícula de Productos -->
-    <section class="product-grid">
-        <!-- Producto 1 -->
-        <article class="product-card">
-            <div class="product-image"></div>
-            <h3>Guitarra Eléctrica Stratocaster</h3>
-            <button onclick="agregarAlCarrito(1)" class="btn">Añadir al carrito</button>
-            <div class="product-info">
-                <span class="attributes">Cuerpo de Fresno</span>
-                <span class="price">$850.00</span>
-            </div>
-        </article>
-        <!-- Producto 2 -->
-        <article class="product-card">
-            <div class="product-image"></div>
-            <h3>Teclado Sintetizador 61 Teclas</h3>
-            <div class="product-info">
-                <span class="attributes">Polifonía 128 voces</span>
-                <span class="price">$1,200.00</span>
-            </div>
-        </article>
-        <!-- Repetir las tarjetas según sea necesario -->
+    <section id="contenedor-productos" class="product-grid">
+        <!-- Productos renderizados dinámicamente -->
     </section>
 </main>
 
@@ -79,5 +60,7 @@
         <button>Subscribe</button>
     </div>
 </footer>
+
+<script src="home.functional.js"></script>
 </body>
 </html>

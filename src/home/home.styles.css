@@ -106,6 +106,8 @@ nav a:hover, .user-actions a:hover {
 
 .product-card {
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-image {
@@ -119,6 +121,19 @@ nav a:hover, .user-actions a:hover {
     font-size: 1rem;
     color: var(--text-light);
     margin-bottom: 10px;
+    min-height: 2.2em;
+}
+
+.product-card .btn {
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.product-card .btn:hover {
+    opacity: 0.9;
 }
 
 .product-info {
@@ -126,6 +141,7 @@ nav a:hover, .user-actions a:hover {
     justify-content: space-between;
     color: var(--text-muted);
     font-size: 0.9rem;
+    margin-top: auto;
 }
 
 /* Footer */

@@ -4,60 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonido Vivo - Tienda de Instrumentos Musicales</title>
+    <link rel="stylesheet" href="../output.css">
     <link rel="stylesheet" href="home.styles.css">
 </head>
-<body>
-<!-- Navegación -->
-<header>
-    <div class="logo">Sonido Vivo</div>
-    <nav>
-        <a href="home.view.html">Home</a>
-        <a href="../products/products.view.html">Productos</a>
-        <a href="#">Nosotros</a>
-        <a href="#">Blogs</a>
-        <a href="#">Contacto</a>
+<body class="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+
+<!-- Navegación Header -->
+<header class="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-40">
+    <div class="logo font-bold text-xl tracking-wide">
+        <a href="home.view.html" class="text-[#4fa8ff] hover:text-[#3db8ff] no-underline transition-colors">Sonido Vivo</a>
+    </div>
+    <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm font-medium">
+        <a href="home.view.html" class="text-[#4fa8ff] no-underline font-semibold">Home</a>
+        <a href="../products/products.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Productos</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Nosotros</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Blogs</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Contacto</a>
     </nav>
-    <div class="user-actions">
-        <a href="../login/login.view.html">Iniciar sesión</a>
-        <a href="../login/login.view.html?mode=register">Registrar</a>
-        <a href="../cart/cart.view.html" class="cart-icon">🛒 Cart (0)</a>
+    <div class="user-actions flex items-center gap-4 text-sm font-medium">
+        <a href="../login/login.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Iniciar sesión</a>
+        <a href="../login/login.view.html?mode=register" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Registrar</a>
+        <a href="../cart/cart.view.html" class="cart-icon bg-[#27253d] hover:bg-[#3e3c56] text-white px-3.5 py-1.5 rounded-full border border-[#2e2c45] transition-colors no-underline flex items-center gap-1.5">🛒 Cart (0)</a>
     </div>
 </header>
 
-<!-- Banner Principal -->
-<main>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>TIENDA ONLINE</h1>
-            <p>Encuentra las mejores guitarras, bajos, baterías y teclados. Todo lo que necesitas para que tu música cobre vida está aquí.</p>
-            <a href="../products/products.view.html" class="btn">Ver productos</a>
+<!-- Contenido Principal -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-10">
+    <!-- Banner Hero Principal -->
+    <section class="hero bg-[#1c1a2e] border border-[#2e2c45] rounded-2xl p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
+        <div class="hero-content space-y-4 lg:w-1/2 text-center lg:text-left">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">TIENDA ONLINE</h1>
+            <p class="text-[#a0a0b0] text-sm sm:text-base leading-relaxed">
+                Encuentra las mejores guitarras, bajos, baterías y teclados. Todo lo que necesitas para que tu música cobre vida está aquí.
+            </p>
+            <div class="pt-2">
+                <a href="../products/products.view.html" class="inline-block bg-white text-[#121026] hover:bg-gray-200 font-bold px-6 py-3 rounded-lg transition-colors no-underline shadow-md hover:shadow-lg">Ver productos</a>
+            </div>
         </div>
-        <div class="hero-image">
-            <!-- Aquí puedes colocar la imagen de una guitarra o un estudio -->
-            <div class="placeholder-img">Imagen de Instrumentos</div>
+        <div class="hero-image lg:w-1/2 w-full flex justify-center">
+            <div class="placeholder-img w-full max-w-md h-48 sm:h-64 bg-[#3e3c56] rounded-xl flex items-center justify-center text-[#a0a0b0] font-medium border border-[#2e2c45]">
+                Imagen de Instrumentos
+            </div>
         </div>
     </section>
 
-    <!-- Cuadrícula de Productos -->
-    <section id="contenedor-productos" class="product-grid">
-        <!-- Productos renderizados dinámicamente -->
+    <!-- Sección de Productos Destacados -->
+    <section class="space-y-6">
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-wide">Instrumentos Destacados</h2>
+            <a href="../products/products.view.html" class="text-sm text-[#4fa8ff] hover:text-[#3db8ff] no-underline">Ver catálogo completo →</a>
+        </div>
+        <!-- Cuadrícula responsive de productos -->
+        <div id="contenedor-productos" class="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Productos renderizados dinámicamente -->
+        </div>
     </section>
 </main>
 
-<!-- Footer -->
-<footer>
-    <div class="footer-left">
-        <h4>Sonido Vivo</h4>
-    </div>
-    <div class="footer-center">
-        <a href="#">Categoría Cuerdas</a> |
-        <a href="#">Categoría Percusión</a> |
-        <a href="#">Categoría Teclas</a>
-    </div>
-    <div class="footer-right">
-        <p>Stay In Touch: Join our Newsletter</p>
-        <input type="email" placeholder="Enter Email" aria-label="Correo electrónico para boletín">
-        <button>Subscribe</button>
+<!-- Footer Anclado al final de la página -->
+<footer class="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="footer-left">
+            <a href="home.view.html" class="text-white font-bold text-lg no-underline hover:text-[#4fa8ff] transition-colors">Sonido Vivo</a>
+        </div>
+        <div class="footer-center flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#a0a0b0]">
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Cuerdas</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Percusión</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Teclas</a>
+        </div>
+        <div class="footer-right flex flex-col sm:flex-row items-center gap-2">
+            <p class="text-xs text-[#a0a0b0] sm:mr-2">Stay In Touch:</p>
+            <input type="email" placeholder="Enter Email" aria-label="Correo electrónico para boletín" class="bg-[#27253d] border border-[#2e2c45] text-white text-xs rounded-lg px-3 py-2 outline-none focus:border-[#4fa8ff] w-full sm:w-44 transition-colors">
+            <button class="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs px-4 py-2 rounded-lg transition-colors cursor-pointer w-full sm:w-auto">Subscribe</button>
+        </div>
     </div>
 </footer>
 

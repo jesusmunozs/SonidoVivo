@@ -1,5 +1,5 @@
 /**
- * LÓGICA DE PRODUCTOS Y CARRITO DE COMPRAS - HOME
+ * LÓGICA DE PRODUCTOS Y CARRITO DE COMPRAS - HOME & CATALOGO
  */
 
 // 1. Inventario de productos (instrumentos musicales)
@@ -21,19 +21,19 @@ function guardarCarrito(carrito) {
     actualizarContadorCarrito();
 }
 
-// 4. Renderizar productos en el grid del Home
+// 4. Renderizar productos en el grid
 function renderizarProductosHome() {
     const contenedor = document.getElementById('contenedor-productos');
     if (!contenedor) return;
 
     contenedor.innerHTML = inventarioProductos.map(producto => `
-        <article class="product-card">
-            <div class="product-image"></div>
-            <h3>${producto.nombre}</h3>
-            <button onclick="agregarAlCarrito(${producto.id})" class="btn">Añadir al carrito</button>
-            <div class="product-info">
-                <span class="attributes">${producto.descripcion || ''}</span>
-                <span class="price">$${producto.precio.toLocaleString()}</span>
+        <article class="product-card bg-[#1c1a2e] border border-[#2e2c45] rounded-xl p-5 flex flex-col justify-between hover:border-[#4fa8ff] transition-all hover:shadow-lg hover:shadow-cyan-950/20">
+            <div class="product-image w-full h-44 bg-[#d9d9d9] rounded-lg mb-4 flex items-center justify-center"></div>
+            <h3 class="text-white font-semibold text-base mb-2 min-h-[2.5rem] line-clamp-2">${producto.nombre}</h3>
+            <button onclick="agregarAlCarrito(${producto.id})" class="btn w-full bg-white text-[#121026] hover:bg-gray-200 font-semibold py-2.5 px-4 rounded-lg transition-colors cursor-pointer mb-3">Añadir al carrito</button>
+            <div class="product-info flex items-center justify-between text-[#a0a0b0] text-sm mt-auto">
+                <span class="attributes text-xs sm:text-sm text-[#a0a0b0]">${producto.descripcion || ''}</span>
+                <span class="price font-bold text-white text-base">$${producto.precio.toLocaleString()}</span>
             </div>
         </article>
     `).join('');
@@ -55,7 +55,6 @@ function agregarAlCarrito(idProducto) {
             nombre: productoSeleccionado.nombre,
             precio: productoSeleccionado.precio,
             descripcion: productoSeleccionado.descripcion,
-            imagen: productoSeleccionado.imagen,
             cantidad: 1
         });
     }
@@ -70,18 +69,7 @@ function mostrarNotificacion(mensaje) {
     if (!notif) {
         notif = document.createElement('div');
         notif.id = 'notificacion-toast';
-        notif.style.position = 'fixed';
-        notif.style.bottom = '20px';
-        notif.style.right = '20px';
-        notif.style.backgroundColor = '#100e1f';
-        notif.style.color = '#fff';
-        notif.style.border = '1px solid #4fa8ff';
-        notif.style.padding = '12px 20px';
-        notif.style.borderRadius = '6px';
-        notif.style.boxShadow = '0 4px 12px rgba(0,0,0,0.5)';
-        notif.style.zIndex = '1000';
-        notif.style.fontSize = '0.9rem';
-        notif.style.transition = 'opacity 0.3s ease';
+        notif.className = 'fixed bottom-5 right-5 bg-[#100e1f] text-white border border-[#4fa8ff] py-3 px-5 rounded-lg shadow-2xl z-50 text-sm transition-opacity duration-300';
         document.body.appendChild(notif);
     }
     notif.innerText = mensaje;

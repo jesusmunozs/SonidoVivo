@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito - Sonido Vivo</title>
+    <link rel="stylesheet" href="cart.styles.css">
 </head>
 <body>
+<!-- Header reutilizado -->
+<header>
+    <div class="logo">Sonido Vivo</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="productos.html">Productos</a>
+    </nav>
+    <div class="user-actions">
+        <a href="carrito.html" class="cart-icon">🛒 Cart (0)</a>
+    </div>
+</header>
 
+<main class="cart-container">
+    <h1>Mi carrito de compras</h1>
+
+    <div class="cart-layout">
+        <!-- Aquí se inyectarán los productos mediante JavaScript -->
+        <div id="contenedor-carrito" class="cart-items">
+            <!-- Los items aparecerán aquí -->
+        </div>
+
+        <!-- Resumen de compra -->
+        <div class="cart-summary">
+            <h2>TOTAL: <span id="precio-total">$0</span></h2>
+            <button class="btn btn-pagar">PAGAR</button>
+        </div>
+    </div>
+</main>
+
+<script src="cart.funcional.js"></script>
 </body>
 </html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonido Vivo - Iniciar Sesión / Registro</title>
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="login.styles.css">
+</head>
+<body class="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+
+<!-- Header con navegación consistente -->
+<header class="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-40">
+    <div class="logo font-bold text-xl tracking-wide">
+        <a href="../home/home.view.html" class="text-[#4fa8ff] hover:text-[#3db8ff] no-underline transition-colors">Sonido Vivo</a>
+    </div>
+    <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm font-medium">
+        <a href="../home/home.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Home</a>
+        <a href="../products/products.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Productos</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Nosotros</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Blogs</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Contacto</a>
+    </nav>
+    <div class="user-actions flex items-center gap-4 text-sm font-medium">
+        <a href="login.view.html" class="text-[#4fa8ff] font-semibold no-underline transition-colors">Iniciar sesión</a>
+        <a href="login.view.html?mode=register" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Registrar</a>
+        <a href="../cart/cart.view.html" class="cart-icon bg-[#27253d] hover:bg-[#3e3c56] text-white px-3.5 py-1.5 rounded-full border border-[#2e2c45] transition-colors no-underline flex items-center gap-1.5">🛒 Cart (0)</a>
+    </div>
+</header>
+
+<!-- Contenedor Principal de Autenticación con flex-1 para anclar el footer -->
+<main class="auth-wrapper flex-1 max-w-7xl w-full mx-auto flex items-center justify-center p-4 sm:p-6 md:p-12">
+    <div class="auth-card w-full max-w-md bg-[#1c1a2e] border border-[#2e2c45] rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <!-- Pestañas para cambiar entre Login y Registro -->
+        <div class="auth-tabs flex border-b border-[#2e2c45] mb-6">
+            <button type="button" class="tab-btn active flex-1 pb-3 text-center font-bold text-[#a0a0b0] border-b-2 border-transparent transition-all cursor-pointer text-sm sm:text-base" id="tab-login" onclick="cambiarTab('login')">Iniciar Sesión</button>
+            <button type="button" class="tab-btn flex-1 pb-3 text-center font-bold text-[#a0a0b0] border-b-2 border-transparent transition-all cursor-pointer text-sm sm:text-base" id="tab-register" onclick="cambiarTab('register')">Registrarse</button>
+        </div>
+
+        <!-- Mensaje de Feedback Global -->
+        <div id="alert-feedback" class="alert-feedback mb-5 text-sm p-3.5 rounded-lg border hidden" role="alert"></div>
+
+        <!-- FORMULARIO 1: INICIO DE SESIÓN -->
+        <form id="form-login" class="auth-form active flex flex-col gap-4" novalidate>
+            <div class="form-header mb-1">
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Bienvenido de vuelta</h2>
+                <p class="text-xs sm:text-sm text-[#a0a0b0] mt-1">Ingresa tus credenciales para acceder a tu cuenta.</p>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="login-email" class="text-xs sm:text-sm font-medium text-gray-300">Correo Electrónico o Usuario</label>
+                <input type="text" id="login-email" name="email" placeholder="ejemplo@correo.com" autocomplete="username" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-login-email"></span>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="login-password" class="text-xs sm:text-sm font-medium text-gray-300">Contraseña</label>
+                <input type="password" id="login-password" name="password" placeholder="Tu contraseña" autocomplete="current-password" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-login-password"></span>
+            </div>
+
+            <div class="form-options flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm py-1">
+                <label class="remember-me flex items-center gap-2 text-[#a0a0b0] cursor-pointer" for="login-remember">
+                    <input type="checkbox" id="login-remember" name="remember" class="accent-[#4fa8ff] cursor-pointer rounded">
+                    Recordarme
+                </label>
+                <a href="#" class="forgot-password text-[#4fa8ff] hover:text-[#3db8ff] no-underline" id="link-forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn-submit w-full bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer text-sm sm:text-base mt-2 shadow-md">Ingresar</button>
+        </form>
+
+        <!-- FORMULARIO 2: REGISTRO -->
+        <form id="form-register" class="auth-form flex-col gap-4 hidden" novalidate>
+            <div class="form-header mb-1">
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Crea tu cuenta</h2>
+                <p class="text-xs sm:text-sm text-[#a0a0b0] mt-1">Únete a Sonido Vivo y disfruta de las mejores ofertas musicales.</p>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="register-name" class="text-xs sm:text-sm font-medium text-gray-300">Nombre Completo</label>
+                <input type="text" id="register-name" name="name" placeholder="Ej: Juan Pérez" autocomplete="name" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-register-name"></span>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="register-email" class="text-xs sm:text-sm font-medium text-gray-300">Correo Electrónico</label>
+                <input type="email" id="register-email" name="email" placeholder="ejemplo@correo.com" autocomplete="email" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-register-email"></span>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="register-password" class="text-xs sm:text-sm font-medium text-gray-300">Contraseña</label>
+                <input type="password" id="register-password" name="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-register-password"></span>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5">
+                <label for="register-confirm-password" class="text-xs sm:text-sm font-medium text-gray-300">Confirmar Contraseña</label>
+                <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Repite tu contraseña" autocomplete="new-password" class="w-full bg-[#27253d] border border-[#2e2c45] rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#4fa8ff] transition-colors">
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-register-confirm-password"></span>
+            </div>
+
+            <div class="form-group flex flex-col gap-1.5 py-1">
+                <label class="terms-check flex items-start gap-2 text-xs sm:text-sm text-[#a0a0b0] cursor-pointer" for="register-terms">
+                    <input type="checkbox" id="register-terms" name="terms" class="accent-[#4fa8ff] cursor-pointer mt-0.5 rounded">
+                    <span>Acepto los términos y condiciones de Sonido Vivo</span>
+                </label>
+                <span class="error-message text-xs text-red-400 min-h-[16px] hidden" id="error-register-terms"></span>
+            </div>
+
+            <button type="submit" class="btn-submit w-full bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold py-3 px-6 rounded-lg transition-colors cursor-pointer text-sm sm:text-base mt-2 shadow-md">Crear Cuenta</button>
+        </form>
+    </div>
+</main>
+
+<!-- Footer Anclado al final -->
+<footer class="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="footer-left">
+            <a href="../home/home.view.html" class="text-white font-bold text-lg no-underline hover:text-[#4fa8ff] transition-colors">Sonido Vivo</a>
+        </div>
+        <div class="footer-center flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#a0a0b0]">
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Cuerdas</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Percusión</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="../products/products.view.html" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Teclas</a>
+        </div>
+        <div class="footer-right">
+            <span class="text-xs text-[#a0a0b0]">© 2026 Sonido Vivo - Todos los derechos reservados</span>
+        </div>
+    </div>
+</footer>
+
+<script src="login.functional.js"></script>
+</body>
+</html>

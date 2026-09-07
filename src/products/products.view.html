@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonido Vivo - Catálogo de Productos</title>
+    <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="products.styles.css">
+</head>
+<body class="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+
+<!-- Navegación Header -->
+<header class="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-40">
+    <div class="logo font-bold text-xl tracking-wide">
+        <a href="../home/home.view.html" class="text-[#4fa8ff] hover:text-[#3db8ff] no-underline transition-colors">Sonido Vivo</a>
+    </div>
+    <nav class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm font-medium">
+        <a href="../home/home.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Home</a>
+        <a href="products.view.html" class="text-[#4fa8ff] no-underline font-semibold">Productos</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Nosotros</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Blogs</a>
+        <a href="#" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Contacto</a>
+    </nav>
+    <div class="user-actions flex items-center gap-4 text-sm font-medium">
+        <a href="../login/login.view.html" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Iniciar sesión</a>
+        <a href="../login/login.view.html?mode=register" class="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">Registrar</a>
+        <a href="../cart/cart.view.html" class="cart-icon bg-[#27253d] hover:bg-[#3e3c56] text-white px-3.5 py-1.5 rounded-full border border-[#2e2c45] transition-colors no-underline flex items-center gap-1.5">🛒 Cart (0)</a>
+    </div>
+</header>
+
+<!-- Contenedor Principal Catálogo -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
+    <div class="text-center sm:text-left border-b border-[#2e2c45] pb-6">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide">Catálogo de Instrumentos</h1>
+        <p class="text-[#a0a0b0] text-sm mt-2">Explora nuestra selección completa de instrumentos musicales de alta calidad.</p>
+    </div>
+
+    <!-- Cuadrícula responsive de Productos -->
+    <section id="contenedor-productos" class="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-4">
+        <!-- Inyectado por home.functional.js -->
+    </section>
+</main>
+
+<!-- Footer Anclado al final -->
+<footer class="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="footer-left">
+            <a href="../home/home.view.html" class="text-white font-bold text-lg no-underline hover:text-[#4fa8ff] transition-colors">Sonido Vivo</a>
+        </div>
+        <div class="footer-center flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#a0a0b0]">
+            <a href="#" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Cuerdas</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="#" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Percusión</a>
+            <span class="text-[#2e2c45]">|</span>
+            <a href="#" class="hover:text-[#4fa8ff] no-underline transition-colors">Categoría Teclas</a>
+        </div>
+        <div class="footer-right flex flex-col sm:flex-row items-center gap-2">
+            <p class="text-xs text-[#a0a0b0] sm:mr-2">Stay In Touch:</p>
+            <input type="email" placeholder="Enter Email" aria-label="Correo electrónico para boletín" class="bg-[#27253d] border border-[#2e2c45] text-white text-xs rounded-lg px-3 py-2 outline-none focus:border-[#4fa8ff] w-full sm:w-44 transition-colors">
+            <button class="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs px-4 py-2 rounded-lg transition-colors cursor-pointer w-full sm:w-auto">Subscribe</button>
+        </div>
+    </div>
+</footer>
+
+<script src="../home/home.functional.js"></script>
+</body>
+</html>

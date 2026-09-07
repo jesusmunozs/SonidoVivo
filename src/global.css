@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+    --bg-dark: #121026;
+    --bg-header: #100e1f;
+    --card-img-bg: #d9d9d9;
+    --card-bg: #1c1a2e;
+    --card-item-bg: #27253d;
+    --text-light: #ffffff;
+    --text-muted: #a0a0b0;
+    --accent-blue: #4fa8ff;
+    --accent-blue-hover: #3db8ff;
+    --btn-success: #00a843;
+    --border-color: #2e2c45;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Quitar subrayado del nombre de la tienda en toda la aplicación */
+.logo a,
+a.logo,
+.logo,
+.footer-logo,
+.footer-left h4,
+.footer-left a {
+    text-decoration: none !important;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}

@@ -1,0 +1,22 @@
+/* Estilos específicos para la vista Home compatibles con Tailwind */
+.logo a,
+a.logo,
+.footer-logo,
+.footer-left h4,
+.footer-left a {
+    text-decoration: none !important;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}

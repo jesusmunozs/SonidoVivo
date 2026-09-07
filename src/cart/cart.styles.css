@@ -1,178 +1,22 @@
-/* Variables basadas en los colores de tu imagen a_2.png */
-:root {
-    --bg-main: #14131c;       /* Fondo global oscuro */
-    --bg-box: #2d2b3a;        /* Caja principal contenedora */
-    --bg-item: #3d3b4a;       /* Fondo de las tarjetas internas */
-    --img-gray: #b0b0b0;      /* Gris claro para placeholders de imagen */
-    --text-white: #ffffff;
-    --text-muted: #a0a0a0;
-    --accent-blue: #3db8ff;   /* Azul del logo */
-    --btn-gray: #5a5a68;      /* Botones oscuros */
+/* Estilos específicos para la vista Cart compatibles con Tailwind */
+.logo a,
+a.logo,
+.footer-logo,
+.footer-left h4,
+.footer-left a {
+    text-decoration: none !important;
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-white);
-}
-
-/* Header (Igual a la imagen) */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 60px;
-}
-header .logo a {
-    color: var(--accent-blue);
-    text-decoration: underline;
-    font-size: 1.1rem;
-}
-header .user-actions a {
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.9rem;
-}
-header .cart-icon { font-size: 1.2rem; color: var(--text-white) !important; }
-
-/* Contenedor Central Oscuro */
-.main-content {
-    padding: 20px 60px;
-    display: flex;
-    justify-content: center;
-}
-.content-box {
-    background-color: var(--bg-box);
-    width: 100%;
-    padding: 40px;
-    border-radius: 4px;
-}
-.section-title {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-bottom: 30px;
-    color: var(--text-white);
-}
-
-/* Estructura del Carrito */
-.cart-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-/* Tarjetas de Producto en el Carrito */
-.cart-items {
-    flex: 2;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-.cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--bg-item);
-    padding: 15px;
-    border-radius: 4px;
-    gap: 20px;
-}
-.item-img {
-    width: 80px;
-    height: 80px;
-    background-color: var(--img-gray);
-    border-radius: 4px;
-}
-.item-info { flex: 1; }
-.item-info h3 { font-size: 1rem; margin-bottom: 5px; }
-.item-info .item-desc { font-size: 0.8rem; color: var(--text-muted); }
-.item-price { font-weight: bold; font-size: 1.1rem; width: 100px; text-align: right; }
-
-/* Botones de Cantidad (Redondeados como tu mockup) */
-.item-controls { display: flex; align-items: center; gap: 10px; }
-.item-controls button.btn-qty {
-    background-color: var(--btn-gray);
-    border: none;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%; /* Botón circular */
-    cursor: pointer;
-    font-size: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, opacity 0.2s;
 }
 
-.item-controls button.btn-qty:hover {
-    opacity: 0.85;
-}
-.item-controls input {
-    width: 40px;
-    text-align: center;
-    background: transparent;
-    border: 1px solid var(--btn-gray);
-    color: white;
-    padding: 6px;
-    border-radius: 4px;
-    outline: none;
+main {
+    flex: 1 0 auto;
 }
 
-/* Caja de Resumen Lateral */
-.cart-summary {
-    flex: 1;
-    background-color: var(--bg-item);
-    padding: 30px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* Sección del Cupón */
-.coupon-section p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
-.coupon-input { display: flex; gap: 10px; }
-.coupon-input input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 20px; /* Bordes redondeados tipo píldora */
-    background: var(--img-gray);
-    color: #333;
-}
-.btn-apply {
-    background-color: var(--btn-gray);
-    color: white;
-    border: none;
-    padding: 0 15px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* Botón Pagar (Verde para destacar según requerimiento del documento) */
-.btn-pagar {
-    background-color: #00a843;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 20px; /* Bordes tipo píldora como en a_2.png */
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
-}
-
-/* Footer (Base oscura) */
 footer {
-    padding: 40px 60px;
-    background-color: #211f2e;
-    margin-top: 40px;
+    margin-top: auto;
 }
-.footer-logo { color: var(--text-white); font-size: 1.1rem; }

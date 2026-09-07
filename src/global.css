@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/*HEADER STYLE
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*FOOTER STYLE*/
+/* Variables CSS para mantener la consistencia del diseño Sonido Vivo */
+:root {
+    --bg-dark: #121026;
+    --bg-header: #100e1f;
+    --card-img-bg: #d9d9d9;
+    --card-bg-dark: #3e3c56;
+    --text-light: #ffffff;
+    --text-muted: #a0a0b0;
+    --accent-blue: #4fa8ff;
+    --btn-bg: #ffffff;
+    --btn-text: #121026;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Header */
+header {
+    background-color: var(--bg-header);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2842;
+}
+
+header .logo {
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav a, .user-actions a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+nav a:hover, .user-actions a:hover {
+    color: var(--accent-blue);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    background-color: var(--card-bg-dark);
+    margin: 40px;
+    border-radius: 8px;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.placeholder-img {
+    width: 300px;
+    height: 200px;
+    background-color: #2a2842;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+/* Productos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px 40px 40px;
+}
+
+.product-card {
+    background-color: transparent;
+}
+
+.product-image {
+    background-color: var(--card-img-bg);
+    height: 200px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-header);
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #2a2842;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}

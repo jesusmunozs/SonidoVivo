@@ -3,38 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Carrito - Sonido Vivo</title>
+    <title>Sonido Vivo - Carrito</title>
     <link rel="stylesheet" href="cart.styles.css">
 </head>
 <body>
-<!-- Header reutilizado -->
+<!-- Header minimalista como en a_2.png -->
 <header>
-    <div class="logo">Sonido Vivo</div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="productos.html">Productos</a>
-    </nav>
+    <div class="logo"><a href="../home/home.view.html">Sonido Vivo</a></div>
     <div class="user-actions">
-        <a href="carrito.html" class="cart-icon">🛒 Cart (0)</a>
+        <a href="../home/home.view.html">Volver a la tienda</a>
+        <a href="#" class="cart-icon">🛒 Cart (0)</a>
     </div>
 </header>
 
-<main class="cart-container">
-    <h1>Mi carrito de compras</h1>
+<!-- Contenedor principal oscuro -->
+<main class="main-content">
+    <div class="content-box">
+        <h2 class="section-title">Mi carrito de compras</h2>
 
-    <div class="cart-layout">
-        <!-- Aquí se inyectarán los productos mediante JavaScript -->
-        <div id="contenedor-carrito" class="cart-items">
-            <!-- Los items aparecerán aquí -->
-        </div>
+        <div class="cart-layout">
+            <!-- Contenedor donde JS inyectará los productos -->
+            <div id="contenedor-carrito" class="cart-items">
+                <!-- Se inyecta dinámicamente desde cart.funcional.js -->
+            </div>
 
-        <!-- Resumen de compra -->
-        <div class="cart-summary">
-            <h2>TOTAL: <span id="precio-total">$0</span></h2>
-            <button class="btn btn-pagar">PAGAR</button>
+            <!-- Resumen de compra lateral -->
+            <div class="cart-summary">
+                <div class="summary-row total-row">
+                    <span>TOTAL:</span>
+                    <span id="precio-total">$0</span>
+                </div>
+
+                <div class="coupon-section">
+                    <p>Ingrese el cupón de descuento</p>
+                    <div class="coupon-input">
+                        <input type="text" id="input-cupon" placeholder="Código (ej: DESCUENTO10)...">
+                        <button class="btn-apply" onclick="aplicarCupon()">APLICAR</button>
+                    </div>
+                    <p id="mensaje-cupon" style="font-size: 0.8rem; margin-top: 6px;"></p>
+                </div>
+
+                <!-- Botón de pago según instrucciones del documento -->
+                <button class="btn-pagar" onclick="procesarPago()">PAGAR</button>
+            </div>
         </div>
     </div>
 </main>
+
+<!-- Footer minimalista -->
+<footer>
+    <div class="footer-content">
+        <span class="footer-logo">Sonido Vivo</span>
+    </div>
+</footer>
 
 <script src="cart.funcional.js"></script>
 </body>

@@ -3,15 +3,9 @@ import HomeHeader from './HomeHeader';
 import HomeHero from './HomeHero';
 import ProductCard from './ProductCard';
 import HomeFooter from './HomeFooter';
+import { getStoredProducts } from '../inventoryData';
 
 const STORAGE_KEY = 'carritoSonidoVivo';
-
-const INVENTARIO_PRODUCTOS = [
-  { id: 1, nombre: 'Guitarra Eléctrica Stratocaster', precio: 850, descripcion: 'Cuerpo de Fresno', imagen: '' },
-  { id: 2, nombre: 'Teclado Sintetizador 61 Teclas', precio: 1200, descripcion: 'Polifonía 128 voces', imagen: '' },
-  { id: 3, nombre: 'Batería Acústica 5 Cuerpos', precio: 950, descripcion: 'Madera de Arce', imagen: '' },
-  { id: 4, nombre: 'Micrófono Condensador Estudio', precio: 150, descripcion: 'Patrón Cardioide', imagen: '' },
-];
 
 function getInitialCart() {
   if (typeof window === 'undefined') return [];
@@ -25,9 +19,22 @@ function getInitialCart() {
 }
 
 export function Home() {
-  const [products] = useState(INVENTARIO_PRODUCTOS);
+  const [products, setProducts] = useState(getStoredProducts);
   const [cart, setCart] = useState(getInitialCart);
   const [toastMessage, setToastMessage] = useState(null);
+
+  // Sincronizar inventario con cambios en Admin
+  useEffect(() => {
+    const handleInventarioChange = () => {
+      setProducts(getStoredProducts());
+    };
+    window.addEventListener('inventarioActualizado', handleInventarioChange);
+    window.addEventListener('storage', handleInventarioChange);
+    return () => {
+      window.removeEventListener('inventarioActualizado', handleInventarioChange);
+      window.removeEventListener('storage', handleInventarioChange);
+    };
+  }, []);
 
   // Guardar carrito y notificar
   const saveCart = (newCart) => {

@@ -3,12 +3,13 @@ import Home from './home/Home';
 import Products from './products/Products';
 import Cart from './cart/Cart';
 import Login from './login/Login';
+import Admin from './admin/Admin';
 
 export function App() {
   // Manejo de rutas con hash para compatibilidad total con GitHub Pages
   const getRouteFromHash = () => {
     const hash = window.location.hash.replace('#/', '').replace('#', '').toLowerCase();
-    if (['home', 'products', 'cart', 'login'].includes(hash)) {
+    if (['home', 'products', 'cart', 'login', 'admin'].includes(hash)) {
       return hash;
     }
     return 'home';
@@ -50,6 +51,9 @@ export function App() {
       } else if (href.includes('login.view.html') || href === '#/login' || href === '#login') {
         e.preventDefault();
         navigateTo('login');
+      } else if (href === '#/admin' || href === '#admin') {
+        e.preventDefault();
+        navigateTo('admin');
       }
     };
 
@@ -63,6 +67,7 @@ export function App() {
       {currentRoute === 'products' && <Products />}
       {currentRoute === 'cart' && <Cart />}
       {currentRoute === 'login' && <Login onNavigate={navigateTo} />}
+      {currentRoute === 'admin' && <Admin />}
     </div>
   );
 }

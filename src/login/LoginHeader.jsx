@@ -29,11 +29,14 @@ export function LoginHeader({ tab, onTabChange, onNavigate, totalItems = 0 }) {
           >
             Productos
           </button>
-          <a href="#/products" className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">
-            Nosotros
+          <a
+            href="#/admin"
+            className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors font-semibold"
+          >
+            Admin
           </a>
           <a href="#/products" className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">
-            Blogs
+            Nosotros
           </a>
           <a href="#/products" className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors">
             Contacto

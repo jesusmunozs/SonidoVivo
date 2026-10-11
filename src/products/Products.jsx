@@ -2,19 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import ProductsHeader from './ProductsHeader';
 import ProductCard from './ProductCard';
 import ProductsFooter from './ProductsFooter';
+import { getStoredProducts } from '../inventoryData';
 
 const STORAGE_KEY = 'carritoSonidoVivo';
-
-const INVENTARIO_COMPLETO = [
-  { id: 1, nombre: 'Guitarra Eléctrica Stratocaster', precio: 850, descripcion: 'Cuerpo de Fresno', categoria: 'Cuerdas' },
-  { id: 2, nombre: 'Teclado Sintetizador 61 Teclas', precio: 1200, descripcion: 'Polifonía 128 voces', categoria: 'Teclas' },
-  { id: 3, nombre: 'Batería Acústica 5 Cuerpos', precio: 950, descripcion: 'Madera de Arce', categoria: 'Percusión' },
-  { id: 4, nombre: 'Micrófono Condensador Estudio', precio: 150, descripcion: 'Patrón Cardioide', categoria: 'Audio' },
-  { id: 5, nombre: 'Bajo Eléctrico 4 Cuerdas Jazz', precio: 780, descripcion: 'Pastillas Activas', categoria: 'Cuerdas' },
-  { id: 6, nombre: 'Piano Digital 88 Teclas Pesadas', precio: 1450, descripcion: 'Acción Martillo Graduada', categoria: 'Teclas' },
-  { id: 7, nombre: 'Set Platillos Batería 14/16/20', precio: 430, descripcion: 'Aleación B20 Bronce', categoria: 'Percusión' },
-  { id: 8, nombre: 'Amplificador para Guitarra 50W', precio: 320, descripcion: 'Efectos Digitales DSP', categoria: 'Audio' },
-];
 
 function getInitialCart() {
   if (typeof window === 'undefined') return [];
@@ -28,11 +18,24 @@ function getInitialCart() {
 }
 
 export function Products() {
-  const [products] = useState(INVENTARIO_COMPLETO);
+  const [products, setProducts] = useState(getStoredProducts);
   const [cart, setCart] = useState(getInitialCart);
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [searchQuery, setSearchQuery] = useState('');
   const [toastMessage, setToastMessage] = useState(null);
+
+  // Sincronizar inventario con Admin
+  useEffect(() => {
+    const handleInventarioChange = () => {
+      setProducts(getStoredProducts());
+    };
+    window.addEventListener('inventarioActualizado', handleInventarioChange);
+    window.addEventListener('storage', handleInventarioChange);
+    return () => {
+      window.removeEventListener('inventarioActualizado', handleInventarioChange);
+      window.removeEventListener('storage', handleInventarioChange);
+    };
+  }, []);
 
   // Sincronizar carrito
   const saveCart = (newCart) => {
@@ -80,7 +83,7 @@ export function Products() {
         selectedCategory === 'Todas' || prod.categoria === selectedCategory;
       const matchesSearch =
         prod.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        prod.descripcion.toLowerCase().includes(searchQuery.toLowerCase());
+        prod.descripcion?.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [products, selectedCategory, searchQuery]);

@@ -24,16 +24,16 @@ export function HomeHeader({ totalItems = 0 }) {
             Productos
           </a>
           <a
-            href="#/products"
-            className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors"
+            href="#/admin"
+            className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors font-semibold"
           >
-            Nosotros
+            Admin
           </a>
           <a
             href="#/products"
             className="text-[#a0a0b0] hover:text-[#4fa8ff] no-underline transition-colors"
           >
-            Blogs
+            Nosotros
           </a>
           <a
             href="#/products"

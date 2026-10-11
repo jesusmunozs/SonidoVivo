@@ -119,31 +119,34 @@ export function Products() {
   const categories = ['Todas', 'Cuerdas', 'Teclas', 'Percusión', 'Audio'];
 
   return (
-    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
       {/* Header */}
       <ProductsHeader totalItems={totalItems} />
 
-      {/* Contenedor Principal */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
-        <div className="text-center sm:text-left border-b border-[#2e2c45] pb-6">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide">
-            Catálogo de Instrumentos
-          </h1>
-          <p className="text-[#a0a0b0] text-sm mt-2">
-            Explora nuestra selección completa de instrumentos musicales de alta calidad.
-          </p>
+      {/* Contenedor Principal aprovechando mejor el ancho */}
+      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#2e2c45] pb-8">
+          <div>
+            <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Catálogo oficial</span>
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide mt-1">
+              Instrumentos Musicales
+            </h1>
+            <p className="text-[#a0a0b0] text-sm sm:text-base mt-2 max-w-xl">
+              Explora nuestra selección completa de instrumentos y accesorios profesionales con envío a todo el país.
+            </p>
+          </div>
 
-          {/* Filtros y búsqueda */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+          {/* Filtros y búsqueda integrados */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+            <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`text-xs px-3.5 py-1.5 rounded-full border transition-colors cursor-pointer ${
+                  className={`text-xs sm:text-sm px-4 py-2 rounded-xl border transition-all cursor-pointer font-medium ${
                     selectedCategory === cat
-                      ? 'bg-[#4fa8ff] text-[#100e1f] border-[#4fa8ff] font-bold'
+                      ? 'bg-[#4fa8ff] text-[#100e1f] border-[#4fa8ff] font-bold shadow-md shadow-cyan-500/20'
                       : 'bg-[#27253d] text-[#a0a0b0] border-[#2e2c45] hover:text-white hover:border-[#4fa8ff]'
                   }`}
                 >
@@ -152,24 +155,32 @@ export function Products() {
               ))}
             </div>
 
-            <div className="w-full sm:w-72">
+            <div className="sm:w-64">
               <input
                 type="text"
                 placeholder="Buscar instrumento..."
                 aria-label="Buscar instrumento"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#27253d] border border-[#2e2c45] text-white text-xs sm:text-sm rounded-lg px-3.5 py-2 outline-none focus:border-[#4fa8ff] transition-colors"
+                className="w-full bg-[#27253d] border border-[#2e2c45] text-white text-xs sm:text-sm rounded-xl px-4 py-2.5 outline-none focus:border-[#4fa8ff] transition-colors"
               />
             </div>
           </div>
         </div>
 
         {/* Cuadrícula de productos */}
-        <section id="contenedor-productos" className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-4">
+        <section id="contenedor-productos" className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 py-4">
           {filteredProducts.length === 0 ? (
-            <div className="col-span-full py-12 text-center text-[#a0a0b0]">
-              No se encontraron instrumentos que coincidan con la búsqueda.
+            <div className="col-span-full py-16 text-center text-[#a0a0b0] bg-[#1c1a2e] border border-[#2e2c45] rounded-2xl">
+              <span className="text-4xl mb-3 block">🔍</span>
+              <p className="text-base font-semibold">No se encontraron instrumentos que coincidan con la búsqueda.</p>
+              <button
+                type="button"
+                onClick={() => { setSelectedCategory('Todas'); setSearchQuery(''); }}
+                className="mt-4 text-xs sm:text-sm text-[#4fa8ff] hover:underline"
+              >
+                Limpiar filtros
+              </button>
             </div>
           ) : (
             filteredProducts.map((product) => (
@@ -191,9 +202,9 @@ export function Products() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-5 right-5 bg-[#100e1f] text-white border border-[#4fa8ff] py-3 px-5 rounded-lg shadow-2xl z-50 text-sm transition-opacity duration-300"
+          className="fixed bottom-6 right-6 bg-[#100e1f] text-white border border-[#4fa8ff] py-3.5 px-6 rounded-xl shadow-2xl z-50 text-sm font-medium transition-all duration-300 flex items-center gap-2"
         >
-          {toastMessage}
+          <span>✅</span> {toastMessage}
         </div>
       )}
     </div>

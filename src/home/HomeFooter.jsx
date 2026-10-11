@@ -13,59 +13,66 @@ export function HomeFooter() {
   };
 
   return (
-    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-6 sm:px-8 lg:px-16">
+      <div className="w-full max-w-7xl 2xl:max-w-[1536px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div className="footer-left">
           <a
-            href="home.view.html"
-            className="text-white font-bold text-lg no-underline hover:text-[#4fa8ff] transition-colors"
+            href="#/home"
+            className="text-white font-extrabold text-xl sm:text-2xl no-underline hover:text-[#4fa8ff] transition-colors flex items-center justify-center md:justify-start gap-2"
           >
-            Sonido Vivo
+            <span>🎵</span> Sonido Vivo
           </a>
+          <p className="text-xs text-[#a0a0b0] mt-1.5 max-w-xs">
+            Tu tienda especializada en instrumentos musicales de alta fidelidad.
+          </p>
         </div>
 
-        <div className="footer-center flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#a0a0b0]">
+        <div className="footer-center flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#a0a0b0] font-medium">
           <a
-            href="../products/products.view.html"
+            href="#/products"
             className="hover:text-[#4fa8ff] no-underline transition-colors"
           >
             Categoría Cuerdas
           </a>
           <span className="text-[#2e2c45]">|</span>
           <a
-            href="../products/products.view.html"
+            href="#/products"
             className="hover:text-[#4fa8ff] no-underline transition-colors"
           >
             Categoría Percusión
           </a>
           <span className="text-[#2e2c45]">|</span>
           <a
-            href="../products/products.view.html"
+            href="#/products"
             className="hover:text-[#4fa8ff] no-underline transition-colors"
           >
             Categoría Teclas
           </a>
         </div>
 
-        <div className="footer-right flex flex-col sm:flex-row items-center gap-2">
-          <p className="text-xs text-[#a0a0b0] sm:mr-2">Stay In Touch:</p>
+        <div className="footer-right flex flex-col sm:flex-row items-center gap-3">
+          <p className="text-xs sm:text-sm text-[#a0a0b0] whitespace-nowrap">Boletín informativo:</p>
           <form onSubmit={handleSubscribe} className="flex gap-2 w-full sm:w-auto">
             <input
               type="email"
-              placeholder={subscribed ? '¡Suscrito!' : 'Enter Email'}
+              placeholder={subscribed ? '¡Suscrito con éxito!' : 'Ingresa tu correo...'}
               aria-label="Correo electrónico para boletín"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#27253d] border border-[#2e2c45] text-white text-xs rounded-lg px-3 py-2 outline-none focus:border-[#4fa8ff] w-full sm:w-44 transition-colors"
+              className="bg-[#27253d] border border-[#2e2c45] text-white text-xs sm:text-sm rounded-xl px-4 py-2.5 outline-none focus:border-[#4fa8ff] w-full sm:w-56 transition-colors"
             />
             <button
               type="submit"
-              className="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs px-4 py-2 rounded-lg transition-colors cursor-pointer w-full sm:w-auto"
+              className="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-md hover:shadow-cyan-500/20"
             >
-              Subscribe
+              Suscribirse
             </button>
           </form>
         </div>
+      </div>
+
+      <div className="w-full max-w-7xl 2xl:max-w-[1536px] mx-auto mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
+        © 2026 Sonido Vivo - Todos los derechos reservados. Desarrollado con React 19 y Tailwind CSS.
       </div>
     </footer>
   );

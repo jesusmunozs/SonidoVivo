@@ -136,31 +136,45 @@ export function Cart() {
   };
 
   return (
-    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
       {/* Header */}
       <CartHeader totalItems={totalItems} />
 
-      {/* Contenedor principal */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col">
-        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl flex-1 flex flex-col">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide mb-8 border-b border-[#2e2c45] pb-4">
-            Mi Carrito de Compras
-          </h1>
+      {/* Contenedor principal con mejor aprovechamiento del ancho */}
+      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col">
+        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl flex-1 flex flex-col">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#2e2c45] pb-6 mb-8">
+            <div>
+              <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Tu orden</span>
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide mt-1">
+                Mi Carrito de Compras
+              </h1>
+            </div>
+            <a
+              href="#/products"
+              className="text-xs sm:text-sm text-[#4fa8ff] hover:text-[#3db8ff] font-semibold no-underline flex items-center gap-1"
+            >
+              ← Continuar comprando
+            </a>
+          </div>
 
-          <div className="cart-layout flex flex-col lg:flex-row gap-8 items-start flex-1">
+          <div className="cart-layout flex flex-col lg:flex-row gap-8 lg:gap-12 items-start flex-1">
             {/* Lista de productos / Estado vacío */}
-            <div className="cart-items w-full lg:w-2/3 flex flex-col gap-4">
+            <div className="cart-items w-full lg:w-2/3 flex flex-col gap-4 sm:gap-5">
               {cart.length === 0 ? (
-                <div className="py-12 px-6 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-xl flex flex-col items-center justify-center gap-4">
-                  <span className="text-4xl" role="img" aria-label="Carrito vacío">
+                <div className="py-16 px-8 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-2xl flex flex-col items-center justify-center gap-5">
+                  <span className="text-5xl" role="img" aria-label="Carrito vacío">
                     🛒
                   </span>
-                  <p className="text-base sm:text-lg">Tu carrito de compras está vacío.</p>
+                  <div className="space-y-1">
+                    <p className="text-lg sm:text-xl font-bold text-white">Tu carrito de compras está vacío</p>
+                    <p className="text-sm text-[#a0a0b0]">Descubre guitarras, teclados, baterías y más en nuestro catálogo.</p>
+                  </div>
                   <a
-                    href="../home/home.view.html"
-                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-sm px-6 py-2.5 rounded-lg no-underline transition-colors"
+                    href="#/products"
+                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl no-underline transition-all shadow-lg hover:shadow-cyan-500/20 mt-2"
                   >
-                    Volver a la tienda a buscar instrumentos
+                    Buscar instrumentos
                   </a>
                 </div>
               ) : (

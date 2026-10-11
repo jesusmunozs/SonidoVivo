@@ -101,31 +101,34 @@ export function Home() {
   };
 
   return (
-    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
       {/* Header */}
       <HomeHeader totalItems={totalItems} />
 
-      {/* Contenido Principal */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-10">
+      {/* Contenido Principal con ancho completo aprovechando pantallas grandes */}
+      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
         {/* Hero Banner */}
         <HomeHero />
 
         {/* Sección de Productos Destacados */}
-        <section className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
-              Instrumentos Destacados
-            </h2>
+        <section className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#2e2c45] pb-5">
+            <div>
+              <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Lo más vendido</span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-wide mt-1">
+                Instrumentos Destacados
+              </h2>
+            </div>
             <a
-              href="../products/products.view.html"
-              className="text-sm text-[#4fa8ff] hover:text-[#3db8ff] no-underline"
+              href="#/products"
+              className="text-sm sm:text-base text-[#4fa8ff] hover:text-[#3db8ff] no-underline font-semibold flex items-center gap-1.5 transition-colors group"
             >
-              Ver catálogo completo →
+              Ver catálogo completo <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
 
-          {/* Grid de productos */}
-          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Grid de productos con excelente espaciado y responsive */}
+          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -145,9 +148,9 @@ export function Home() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-5 right-5 bg-[#100e1f] text-white border border-[#4fa8ff] py-3 px-5 rounded-lg shadow-2xl z-50 text-sm transition-opacity duration-300"
+          className="fixed bottom-6 right-6 bg-[#100e1f] text-white border border-[#4fa8ff] py-3.5 px-6 rounded-xl shadow-2xl z-50 text-sm font-medium transition-all duration-300 flex items-center gap-2"
         >
-          {toastMessage}
+          <span>✅</span> {toastMessage}
         </div>
       )}
     </div>

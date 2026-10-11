@@ -46,7 +46,7 @@ export function Login({ initialMode = 'login', onNavigate }) {
   };
 
   return (
-    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased">
+    <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
       {/* Header */}
       <LoginHeader
         tab={tab}
@@ -59,13 +59,13 @@ export function Login({ initialMode = 'login', onNavigate }) {
       />
 
       {/* Contenedor Principal */}
-      <main className="auth-wrapper flex-1 max-w-7xl w-full mx-auto flex items-center justify-center p-4 sm:p-6 md:p-12">
-        <div className="auth-card w-full max-w-md bg-[#1c1a2e] border border-[#2e2c45] rounded-2xl p-6 sm:p-8 shadow-2xl">
+      <main className="auth-wrapper flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto flex items-center justify-center p-6 sm:p-12 lg:p-16">
+        <div className="auth-card w-full max-w-lg bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-8 sm:p-10 shadow-2xl">
           {/* Pestañas para alternar */}
-          <div className="auth-tabs flex border-b border-[#2e2c45] mb-6">
+          <div className="auth-tabs flex border-b border-[#2e2c45] mb-8">
             <button
               type="button"
-              className={`flex-1 pb-3 text-center font-bold border-b-2 transition-all cursor-pointer text-sm sm:text-base ${
+              className={`flex-1 pb-4 text-center font-bold border-b-2 transition-all cursor-pointer text-sm sm:text-base ${
                 tab === 'login'
                   ? 'text-white border-[#4fa8ff]'
                   : 'text-[#a0a0b0] border-transparent hover:text-white'
@@ -79,7 +79,7 @@ export function Login({ initialMode = 'login', onNavigate }) {
             </button>
             <button
               type="button"
-              className={`flex-1 pb-3 text-center font-bold border-b-2 transition-all cursor-pointer text-sm sm:text-base ${
+              className={`flex-1 pb-4 text-center font-bold border-b-2 transition-all cursor-pointer text-sm sm:text-base ${
                 tab === 'register'
                   ? 'text-white border-[#4fa8ff]'
                   : 'text-[#a0a0b0] border-transparent hover:text-white'
@@ -96,7 +96,7 @@ export function Login({ initialMode = 'login', onNavigate }) {
           {/* Mensaje de Feedback */}
           {feedback && (
             <div
-              className={`mb-5 text-sm p-3.5 rounded-lg border ${
+              className={`mb-6 text-sm p-4 rounded-xl border ${
                 feedback.type === 'success'
                   ? 'bg-green-950/40 border-green-500/50 text-green-300'
                   : 'bg-red-950/40 border-red-500/50 text-red-300'

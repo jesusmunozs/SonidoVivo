@@ -30,7 +30,7 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Interceptar clicks en enlaces relativos antiguos para convertirlos en navegación SPA
+  // Interceptar clicks en enlaces relativos antiguos para convertirlos en navegacion SPA
   useEffect(() => {
     const handleLinkClick = (e) => {
       const target = e.target.closest('a');
@@ -58,7 +58,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="app-container min-h-screen bg-[#121026] text-white">
+    <div className="app-container min-h-screen w-full flex flex-col bg-[#121026] text-white">
       {currentRoute === 'home' && <Home />}
       {currentRoute === 'products' && <Products />}
       {currentRoute === 'cart' && <Cart />}

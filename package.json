@@ -4,13 +4,9 @@
   "type": "module",
   "homepage": "https://jesusmunozs.github.io/SonidoVivo",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "build:css": "tailwindcss -i ./src/global.css -o ./src/output.css",
-    "watch:css": "tailwindcss -i ./src/global.css -o ./src/output.css --watch"
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",

@@ -31,9 +31,16 @@ a.logo,
     text-decoration: none !important;
 }
 
-body {
+html, body {
+    width: 100%;
+    min-height: 100vh;
     background-color: var(--bg-dark);
     color: var(--text-light);
+    overflow-x: hidden;
+}
+
+#root {
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -41,8 +48,10 @@ body {
 
 main {
     flex: 1 0 auto;
+    width: 100%;
 }
 
 footer {
     margin-top: auto;
+    width: 100%;
 }

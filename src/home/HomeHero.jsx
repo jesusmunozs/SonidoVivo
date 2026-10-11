@@ -2,11 +2,11 @@ import React from 'react';
 
 export function HomeHero() {
   return (
-    <section className="hero bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl relative overflow-hidden">
+    <section className="hero w-full bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl relative overflow-hidden">
       {/* Luz decorativa sutil de fondo */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#4fa8ff]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="hero-content space-y-6 lg:w-1/2 text-center lg:text-left z-10">
+      <div className="hero-content space-y-6 lg:w-1/2 text-center lg:text-left z-10 w-full">
         <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#27253d] border border-[#2e2c45] text-xs sm:text-sm text-[#4fa8ff] font-semibold tracking-wide uppercase">
           Instrumentos & Audio Profesional
         </div>
@@ -15,7 +15,7 @@ export function HomeHero() {
           TIENDA <span className="text-[#4fa8ff]">ONLINE</span>
         </h1>
 
-        <p className="text-[#a0a0b0] text-base sm:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+        <p className="text-[#a0a0b0] text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
           Encuentra las mejores guitarras, bajos, baterías y teclados. Todo lo que necesitas para que tu música cobre vida con la máxima calidad.
         </p>
 
@@ -36,7 +36,7 @@ export function HomeHero() {
       </div>
 
       <div className="hero-image lg:w-1/2 w-full flex justify-center z-10">
-        <div className="placeholder-img w-full max-w-xl h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-[#27253d] to-[#171528] rounded-2xl flex flex-col items-center justify-center text-[#a0a0b0] font-medium border border-[#2e2c45] shadow-inner p-6 text-center group hover:border-[#4fa8ff]/50 transition-colors">
+        <div className="placeholder-img w-full h-64 sm:h-80 lg:h-[400px] bg-gradient-to-br from-[#27253d] to-[#171528] rounded-2xl flex flex-col items-center justify-center text-[#a0a0b0] font-medium border border-[#2e2c45] shadow-inner p-6 text-center group hover:border-[#4fa8ff]/50 transition-colors">
           <span className="text-5xl sm:text-6xl mb-3 transform group-hover:scale-110 transition-transform">🎸🎹🥁</span>
           <span className="text-lg sm:text-xl font-bold text-white">Sonido Vivo Experience</span>
           <span className="text-xs sm:text-sm text-[#a0a0b0] mt-1">Cuerdas • Teclas • Percusión • Audio</span>

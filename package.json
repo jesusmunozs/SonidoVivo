@@ -2,10 +2,13 @@
   "name": "sonido-vivo",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://jesusmunozs.github.io/SonidoVivo",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build:css": "tailwindcss -i ./src/global.css -o ./src/output.css",
     "watch:css": "tailwindcss -i ./src/global.css -o ./src/output.css --watch"
   },
@@ -18,6 +21,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.2",
+    "gh-pages": "^6.3.0",
     "vite": "^8.3.4"
   }
 }

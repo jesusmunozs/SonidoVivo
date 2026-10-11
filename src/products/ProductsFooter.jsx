@@ -13,8 +13,8 @@ export function ProductsFooter() {
   };
 
   return (
-    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
-      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-4 sm:px-8 lg:px-12">
+      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div className="footer-left">
           <a
             href="#/home"
@@ -42,11 +42,11 @@ export function ProductsFooter() {
         </div>
 
         <div className="footer-right flex flex-col sm:flex-row items-center gap-3">
-          <p className="text-xs sm:text-sm text-[#a0a0b0] whitespace-nowrap">Stay In Touch:</p>
+          <p className="text-xs sm:text-sm text-[#a0a0b0] whitespace-nowrap">Boletín informativo:</p>
           <form onSubmit={handleSubscribe} className="flex gap-2 w-full sm:w-auto">
             <input
               type="email"
-              placeholder={subscribed ? '¡Suscrito con éxito!' : 'Enter Email'}
+              placeholder={subscribed ? '¡Suscrito con éxito!' : 'Ingresa tu correo...'}
               aria-label="Correo electrónico para boletín"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -54,15 +54,15 @@ export function ProductsFooter() {
             />
             <button
               type="submit"
-              className="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-md hover:shadow-cyan-500/20"
+              className="bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap shadow-md hover:shadow-cyan-500/20 w-auto"
             >
-              Subscribe
+              Suscribirse
             </button>
           </form>
         </div>
       </div>
 
-      <div className="w-full mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
+      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
         © 2026 Sonido Vivo - Todos los derechos reservados. Desarrollado con React 19 y Tailwind CSS.
       </div>
     </footer>

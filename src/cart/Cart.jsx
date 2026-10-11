@@ -140,19 +140,19 @@ export function Cart() {
       {/* Header */}
       <CartHeader totalItems={totalItems} />
 
-      {/* Contenedor principal ocupando todo el ancho de la pantalla */}
-      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-12 flex flex-col">
+      {/* Contenedor principal con limites balanceados y separacion holgada */}
+      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-16 flex flex-col">
         <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl flex-1 flex flex-col w-full">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#2e2c45] pb-6 mb-8">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Tu orden</span>
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide mt-1">
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide mt-1.5">
                 Mi Carrito de Compras
               </h1>
             </div>
             <a
               href="#/products"
-              className="text-xs sm:text-sm text-[#4fa8ff] hover:text-[#3db8ff] font-semibold no-underline flex items-center gap-1"
+              className="text-xs sm:text-sm text-[#4fa8ff] hover:text-[#3db8ff] font-semibold no-underline flex items-center gap-1.5"
             >
               ← Continuar comprando
             </a>
@@ -172,7 +172,7 @@ export function Cart() {
                   </div>
                   <a
                     href="#/products"
-                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl no-underline transition-all shadow-lg hover:shadow-cyan-500/20 mt-2"
+                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl no-underline transition-all shadow-lg hover:shadow-cyan-500/20 mt-2 w-auto"
                   >
                     Buscar instrumentos
                   </a>

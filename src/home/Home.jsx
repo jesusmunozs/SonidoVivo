@@ -105,17 +105,17 @@ export function Home() {
       {/* Header */}
       <HomeHeader totalItems={totalItems} />
 
-      {/* Contenido Principal Full-Width (fluido de borde a borde con padding generoso) */}
-      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
+      {/* Contenido Principal con limites balanceados y separacion holgada */}
+      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-16 flex flex-col gap-16 sm:gap-24">
         {/* Hero Banner */}
         <HomeHero />
 
         {/* Sección de Productos Destacados */}
-        <section className="space-y-8 w-full">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#2e2c45] pb-5">
+        <section className="space-y-10 w-full">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#2e2c45] pb-6">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Lo más vendido</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-wide mt-1">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-wide mt-1.5">
                 Instrumentos Destacados
               </h2>
             </div>
@@ -127,8 +127,8 @@ export function Home() {
             </a>
           </div>
 
-          {/* Grid de productos que aprovecha todo el ancho disponible */}
-          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
+          {/* Grid de productos con espaciado generoso entre cards */}
+          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 w-full">
             {products.map((product) => (
               <ProductCard
                 key={product.id}

@@ -123,8 +123,8 @@ export function Products() {
       {/* Header */}
       <ProductsHeader totalItems={totalItems} />
 
-      {/* Contenedor Principal aprovechando mejor el ancho */}
-      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col gap-8">
+      {/* Contenedor Principal aprovechando todo el ancho de la pantalla */}
+      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-12 flex flex-col gap-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#2e2c45] pb-8">
           <div>
             <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Catálogo oficial</span>

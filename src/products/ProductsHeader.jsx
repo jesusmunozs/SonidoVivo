@@ -2,7 +2,7 @@ import React from 'react';
 
 export function ProductsHeader({ totalItems = 0 }) {
   return (
-    <header className="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-6 sm:px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-40 backdrop-blur-md bg-opacity-95">
+    <header className="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-0 z-40 backdrop-blur-md bg-opacity-95 w-full">
       <div className="logo font-bold text-xl sm:text-2xl tracking-wide flex items-center">
         <a
           href="#/home"

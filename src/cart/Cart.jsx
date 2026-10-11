@@ -140,9 +140,9 @@ export function Cart() {
       {/* Header */}
       <CartHeader totalItems={totalItems} />
 
-      {/* Contenedor principal con mejor aprovechamiento del ancho */}
-      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col">
-        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl flex-1 flex flex-col">
+      {/* Contenedor principal ocupando todo el ancho de la pantalla */}
+      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-12 flex flex-col">
+        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl flex-1 flex flex-col w-full">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#2e2c45] pb-6 mb-8">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Tu orden</span>
@@ -158,11 +158,11 @@ export function Cart() {
             </a>
           </div>
 
-          <div className="cart-layout flex flex-col lg:flex-row gap-8 lg:gap-12 items-start flex-1">
+          <div className="cart-layout flex flex-col lg:flex-row gap-8 lg:gap-12 items-start flex-1 w-full">
             {/* Lista de productos / Estado vacío */}
             <div className="cart-items w-full lg:w-2/3 flex flex-col gap-4 sm:gap-5">
               {cart.length === 0 ? (
-                <div className="py-16 px-8 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-2xl flex flex-col items-center justify-center gap-5">
+                <div className="py-16 px-8 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-2xl flex flex-col items-center justify-center gap-5 w-full">
                   <span className="text-5xl" role="img" aria-label="Carrito vacío">
                     🛒
                   </span>

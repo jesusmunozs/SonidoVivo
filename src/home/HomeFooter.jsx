@@ -13,8 +13,8 @@ export function HomeFooter() {
   };
 
   return (
-    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-6 sm:px-8 lg:px-16">
-      <div className="w-full max-w-7xl 2xl:max-w-[1536px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
         <div className="footer-left">
           <a
             href="#/home"
@@ -22,12 +22,12 @@ export function HomeFooter() {
           >
             <span>🎵</span> Sonido Vivo
           </a>
-          <p className="text-xs text-[#a0a0b0] mt-1.5 max-w-xs">
+          <p className="text-xs text-[#a0a0b0] mt-1.5 max-w-sm">
             Tu tienda especializada en instrumentos musicales de alta fidelidad.
           </p>
         </div>
 
-        <div className="footer-center flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#a0a0b0] font-medium">
+        <div className="footer-center flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-[#a0a0b0] font-medium">
           <a
             href="#/products"
             className="hover:text-[#4fa8ff] no-underline transition-colors"
@@ -59,7 +59,7 @@ export function HomeFooter() {
               aria-label="Correo electrónico para boletín"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-[#27253d] border border-[#2e2c45] text-white text-xs sm:text-sm rounded-xl px-4 py-2.5 outline-none focus:border-[#4fa8ff] w-full sm:w-56 transition-colors"
+              className="bg-[#27253d] border border-[#2e2c45] text-white text-xs sm:text-sm rounded-xl px-4 py-2.5 outline-none focus:border-[#4fa8ff] w-full sm:w-60 transition-colors"
             />
             <button
               type="submit"
@@ -71,7 +71,7 @@ export function HomeFooter() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl 2xl:max-w-[1536px] mx-auto mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
+      <div className="w-full mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
         © 2026 Sonido Vivo - Todos los derechos reservados. Desarrollado con React 19 y Tailwind CSS.
       </div>
     </footer>

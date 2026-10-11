@@ -105,13 +105,13 @@ export function Home() {
       {/* Header */}
       <HomeHeader totalItems={totalItems} />
 
-      {/* Contenido Principal con ancho completo aprovechando pantallas grandes */}
-      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
+      {/* Contenido Principal Full-Width (fluido de borde a borde con padding generoso) */}
+      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
         {/* Hero Banner */}
         <HomeHero />
 
         {/* Sección de Productos Destacados */}
-        <section className="space-y-8">
+        <section className="space-y-8 w-full">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#2e2c45] pb-5">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Lo más vendido</span>
@@ -127,8 +127,8 @@ export function Home() {
             </a>
           </div>
 
-          {/* Grid de productos con excelente espaciado y responsive */}
-          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {/* Grid de productos que aprovecha todo el ancho disponible */}
+          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
             {products.map((product) => (
               <ProductCard
                 key={product.id}

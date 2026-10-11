@@ -1,0 +1,66 @@
+/* Estilos de soporte para la vista Login/Registro compatibles con Tailwind */
+.logo a,
+a.logo,
+.footer-logo,
+.footer-left h4,
+.footer-left a {
+    text-decoration: none !important;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Tabs */
+.tab-btn.active {
+    color: #4fa8ff !important;
+    border-bottom-color: #4fa8ff !important;
+}
+
+/* Formularios */
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+/* Estados de validación */
+input.is-invalid {
+    border-color: #ff5252 !important;
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2) !important;
+}
+
+input.is-valid {
+    border-color: #00d26a !important;
+}
+
+.error-message.visible {
+    display: block !important;
+}
+
+/* Alertas de Feedback */
+.alert-feedback.success {
+    background-color: rgba(0, 210, 106, 0.15) !important;
+    border-color: #00d26a !important;
+    color: #00d26a !important;
+    display: block !important;
+}
+
+.alert-feedback.error {
+    background-color: rgba(255, 82, 82, 0.15) !important;
+    border-color: #ff5252 !important;
+    color: #ff5252 !important;
+    display: block !important;
+}

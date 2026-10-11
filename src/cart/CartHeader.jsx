@@ -2,8 +2,8 @@ import React from 'react';
 
 export function CartHeader({ totalItems = 0 }) {
   return (
-    <header className="bg-[#100e1f] border-b border-[#2e2c45] py-4 px-4 sm:px-8 lg:px-12 sticky top-0 z-40 backdrop-blur-md bg-opacity-95 w-full">
-      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <header className="bg-[#100e1f] border-b border-[#2e2c45] py-3.5 px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 sticky top-0 z-40 backdrop-blur-md bg-opacity-95 w-full">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="logo font-bold text-xl sm:text-2xl tracking-wide flex items-center">
           <a
             href="#/home"

@@ -13,8 +13,8 @@ export function HomeFooter() {
   };
 
   return (
-    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-4 sm:px-8 lg:px-12">
-      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    <footer className="mt-6 sm:mt-10 w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 sm:py-10 px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 text-center md:text-left">
         <div className="footer-left">
           <a
             href="#/home"
@@ -71,7 +71,7 @@ export function HomeFooter() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto mt-8 pt-6 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
+      <div className="w-full mt-6 pt-5 border-t border-[#2e2c45]/40 text-center text-xs text-[#a0a0b0]">
         © 2026 Sonido Vivo - Todos los derechos reservados. Desarrollado con React 19 y Tailwind CSS.
       </div>
     </footer>

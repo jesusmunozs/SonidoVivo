@@ -102,20 +102,20 @@ export function Home() {
 
   return (
     <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
-      {/* Header */}
+      {/* Header Full-Width */}
       <HomeHeader totalItems={totalItems} />
 
-      {/* Contenido Principal con limites balanceados y separacion holgada */}
-      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-16 flex flex-col gap-16 sm:gap-24">
+      {/* Contenido Principal Full-Width sin franjas laterales y con espaciado vertical compacto */}
+      <main className="flex-1 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 pt-4 sm:pt-6 pb-8 sm:pb-10 flex flex-col gap-8 sm:gap-10">
         {/* Hero Banner */}
         <HomeHero />
 
         {/* Sección de Productos Destacados */}
-        <section className="space-y-10 w-full">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#2e2c45] pb-6">
+        <section className="space-y-6 w-full">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#2e2c45] pb-4">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Lo más vendido</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-wide mt-1.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide mt-1">
                 Instrumentos Destacados
               </h2>
             </div>
@@ -127,8 +127,8 @@ export function Home() {
             </a>
           </div>
 
-          {/* Grid de productos con espaciado generoso entre cards */}
-          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 w-full">
+          {/* Grid de productos que aprovecha el ancho completo con espaciado adecuado */}
+          <div className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
@@ -140,7 +140,7 @@ export function Home() {
         </section>
       </main>
 
-      {/* Footer */}
+      {/* Footer Full-Width */}
       <HomeFooter />
 
       {/* Toast Notification */}

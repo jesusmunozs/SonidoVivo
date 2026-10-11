@@ -2,8 +2,8 @@ import React from 'react';
 
 export function LoginFooter({ onNavigate }) {
   return (
-    <footer className="mt-auto w-full bg-[#100e1f] border-t border-[#2e2c45] py-10 sm:py-12 px-4 sm:px-8 lg:px-12">
-      <div className="w-full max-w-7xl 2xl:max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+    <footer className="mt-6 sm:mt-10 w-full bg-[#100e1f] border-t border-[#2e2c45] py-8 sm:py-10 px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 text-center md:text-left">
         <div>
           <button
             type="button"

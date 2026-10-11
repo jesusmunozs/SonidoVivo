@@ -29,14 +29,12 @@ export function Cart() {
     setCart(newCart);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newCart));
-      // Disparar evento para que otras partes o scripts de la app puedan actualizarse
       window.dispatchEvent(new CustomEvent('carritoActualizado', { detail: newCart }));
     } catch (err) {
       console.error('Error al guardar el carrito:', err);
     }
   };
 
-  // Escuchar cambios de almacenamiento entre pestañas o fuentes externas
   useEffect(() => {
     const handleStorageChange = (e) => {
       if (e.key === STORAGE_KEY) {
@@ -51,7 +49,6 @@ export function Cart() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  // Totales calculados
   const totalItems = useMemo(() => {
     return cart.reduce((total, item) => total + (item.cantidad || 0), 0);
   }, [cart]);
@@ -64,7 +61,6 @@ export function Cart() {
     return subtotal * (1 - discount);
   }, [subtotal, discount]);
 
-  // Cambiar cantidad (+1 o -1)
   const handleUpdateQuantity = (index, delta) => {
     const updated = [...cart];
     if (!updated[index]) return;
@@ -78,13 +74,11 @@ export function Cart() {
     saveCart(updated);
   };
 
-  // Eliminar producto
   const handleRemoveItem = (index) => {
     const updated = cart.filter((_, i) => i !== index);
     saveCart(updated);
   };
 
-  // Aplicar cupón de descuento
   const handleApplyCoupon = () => {
     const cleanCoupon = coupon.trim().toUpperCase();
 
@@ -118,7 +112,6 @@ export function Cart() {
     }
   };
 
-  // Procesar pago
   const handleCheckout = () => {
     if (cart.length === 0) {
       alert('Tu carrito está vacío. Agrega productos antes de pagar.');
@@ -137,16 +130,16 @@ export function Cart() {
 
   return (
     <div className="bg-[#121026] text-white min-h-screen flex flex-col font-sans antialiased w-full">
-      {/* Header */}
+      {/* Header Full-Width */}
       <CartHeader totalItems={totalItems} />
 
-      {/* Contenedor principal con limites balanceados y separacion holgada */}
-      <main className="flex-1 w-full max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-16 flex flex-col">
-        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl flex-1 flex flex-col w-full">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#2e2c45] pb-6 mb-8">
+      {/* Contenedor principal Full-Width */}
+      <main className="flex-1 w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 pt-4 sm:pt-6 pb-8 sm:pb-10 flex flex-col">
+        <div className="bg-[#1c1a2e] border border-[#2e2c45] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl flex-1 flex flex-col w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#2e2c45] pb-5 mb-6">
             <div>
               <span className="text-xs sm:text-sm text-[#4fa8ff] font-bold uppercase tracking-wider">Tu orden</span>
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-wide mt-1.5">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide mt-1">
                 Mi Carrito de Compras
               </h1>
             </div>
@@ -158,11 +151,11 @@ export function Cart() {
             </a>
           </div>
 
-          <div className="cart-layout flex flex-col lg:flex-row gap-8 lg:gap-12 items-start flex-1 w-full">
+          <div className="cart-layout flex flex-col lg:flex-row gap-6 lg:gap-10 items-start flex-1 w-full">
             {/* Lista de productos / Estado vacío */}
-            <div className="cart-items w-full lg:w-2/3 flex flex-col gap-4 sm:gap-5">
+            <div className="cart-items w-full lg:w-2/3 flex flex-col gap-4">
               {cart.length === 0 ? (
-                <div className="py-16 px-8 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-2xl flex flex-col items-center justify-center gap-5 w-full">
+                <div className="py-14 px-6 text-center text-[#a0a0b0] bg-[#27253d] border border-[#2e2c45] rounded-2xl flex flex-col items-center justify-center gap-4 w-full">
                   <span className="text-5xl" role="img" aria-label="Carrito vacío">
                     🛒
                   </span>
@@ -172,7 +165,7 @@ export function Cart() {
                   </div>
                   <a
                     href="#/products"
-                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl no-underline transition-all shadow-lg hover:shadow-cyan-500/20 mt-2 w-auto"
+                    className="inline-block bg-[#4fa8ff] hover:bg-[#3db8ff] text-[#100e1f] font-extrabold text-sm sm:text-base px-7 py-3 rounded-xl no-underline transition-all shadow-lg hover:shadow-cyan-500/20 mt-2 w-auto"
                   >
                     Buscar instrumentos
                   </a>
@@ -205,7 +198,7 @@ export function Cart() {
         </div>
       </main>
 
-      {/* Footer */}
+      {/* Footer Full-Width */}
       <CartFooter />
     </div>
   );

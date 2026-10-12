@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "karma start karma.conf.cjs --single-run",
+    "test:watch": "karma start karma.conf.cjs"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
@@ -17,7 +19,14 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.2",
+    "esbuild": "^0.28.2",
     "gh-pages": "^6.3.0",
+    "jasmine-core": "^7.0.2",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-esbuild": "^2.3.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-spec-reporter": "^0.0.37",
     "vite": "^8.3.4"
   }
 }
